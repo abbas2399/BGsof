@@ -1,0 +1,23 @@
+[x-cloak] {
+  display: none !important;
+}
+
+.hero-gradient {
+  background: radial-gradient(
+    ellipse 80% 50% at 50% -10%,
+    #e4effa 0%,
+    transparent 70%
+  );
+}
+
+.card-hover {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 32px -4px rgba(60, 152, 215, 0.2),
+    0 4px 8px -2px rgba(0, 0, 0, 0.06);
+}

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing – BG Sof</title>
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/js/tailwind.config.js"></script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- HTMX -->
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body class="font-sans antialiased bg-white text-zinc-900">
+
+  <!-- Nav -->
+  <div hx-get="/partials/nav.html" hx-trigger="load" hx-swap="outerHTML"></div>
+
+  <!-- Pricing Section -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-5xl mx-auto" x-data="{ tab: 'manufacturers', annual: false }">
+
+      <!-- Header -->
+      <div class="text-center mb-10">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-zinc-900 tracking-tight mb-3">
+          Simple, Transparent Pricing
+        </h1>
+        <p class="text-zinc-500 text-lg">No hidden fees. Cancel anytime.</p>
+      </div>
+
+      <!-- Entity tabs -->
+      <div class="flex justify-center mb-8">
+        <div class="inline-flex items-center gap-1 bg-zinc-100 p-1 rounded-full text-sm font-medium">
+          <button
+            @click="tab = 'manufacturers'"
+            :class="tab === 'manufacturers' ? 'bg-white shadow text-zinc-900' : 'text-zinc-500 hover:text-zinc-700'"
+            class="px-5 py-2 rounded-full transition-all"
+          >
+            Manufacturers
+          </button>
+          <button
+            @click="tab = 'showrooms'"
+            :class="tab === 'showrooms' ? 'bg-white shadow text-zinc-900' : 'text-zinc-500 hover:text-zinc-700'"
+            class="px-5 py-2 rounded-full transition-all"
+          >
+            Showrooms
+          </button>
+        </div>
+      </div>
+
+     
+
+      <!-- ==============================
+           MANUFACTURERS
+      ============================== -->
+      <div x-show="tab === 'manufacturers'" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+
+          <!-- Free -->
+          <div class="border border-zinc-200 rounded-2xl p-8 flex flex-col card-hover">
+            <div class="mb-6">
+              <p class="text-sm font-semibold text-zinc-500 uppercase tracking-wide mb-1">Free</p>
+              <div class="flex items-end gap-1">
+                <span class="text-4xl font-extrabold text-zinc-900">$0</span>
+                <span class="text-zinc-500 text-sm mb-1">/mo</span>
+              </div>
+              <p class="text-xs text-zinc-400 mt-1">Get started, no credit card required</p>
+            </div>
+            <ul class="space-y-3 text-sm text-zinc-600 flex-1 mb-8">
+             
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Make your product available For Specifications to 1000's of Kitchen & Bath Showrooms.
+              </li>
+           
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Basic analytics
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Community support
+              </li>
+               <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Catalog Maintenance
+              </li>
+            </ul>
+            <a href="#" class="block text-center border border-zinc-300 hover:border-brand-600 hover:text-brand-600 text-zinc-700 font-semibold py-2.5 rounded-xl transition-colors text-sm">
+              Get Started Free
+            </a>
+          </div>
+
+          <!-- Pro -->
+          <div class="relative border-2 border-brand-600 rounded-2xl p-8 flex flex-col card-hover bg-white" style="box-shadow: 0 8px 32px -4px rgba(125,61,125,0.18);">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+              <span class="bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                Most Popular
+              </span>
+            </div>
+            <div class="mb-6">
+              <p class="text-sm font-semibold text-brand-600 uppercase tracking-wide mb-1">Pro</p>
+              <div class="flex items-end gap-1">
+                <span class="text-4xl font-extrabold text-zinc-900" x-text="annual ? '$39' : '$49'"></span>
+                <span class="text-zinc-500 text-sm mb-1">/mo</span>
+              </div>
+              <p class="text-xs text-zinc-400 mt-1" x-show="annual" x-cloak>Billed annually ($468/yr)</p>
+              <p class="text-xs text-zinc-400 mt-1" x-show="!annual">Billed monthly</p>
+            </div>
+            <ul class="space-y-3 text-sm text-zinc-600 flex-1 mb-8">
+              <li class="flex items-start gap-2 font-medium text-brand-600">
+                <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Everything in Free, plus:
+              </li>
+             
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-brand-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                CRM (unlimited contacts)
+              </li>
+               <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-brand-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Brand Showcase Page
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-brand-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Advanced Analytics
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-brand-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Priority Support
+              </li>
+            </ul>
+            <a href="#" class="block text-center bg-brand-600 hover:bg-brand-700 text-white font-semibold py-2.5 rounded-xl transition-colors text-sm shadow-sm">
+              Get Started
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==============================
+           SHOWROOMS
+      ============================== -->
+      <div x-show="tab === 'showrooms'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+
+          <!-- Basic -->
+          <div class="border border-zinc-200 rounded-2xl p-8 flex flex-col card-hover">
+            <div class="mb-6">
+              <p class="text-sm font-semibold text-zinc-500 uppercase tracking-wide mb-1">Basic</p>
+              <div class="flex items-end gap-1">
+                <span class="text-4xl font-extrabold text-zinc-900" x-text="annual ? '$0' : 'Free'"></span>
+                <span class="text-zinc-500 text-sm mb-1">/mo</span>
+              </div>
+              <p class="text-xs text-zinc-400 mt-1" x-show="annual" x-cloak>Billed annually ($468/yr)</p>
+              <p class="text-xs text-zinc-400 mt-1" x-show="!annual">Billed monthly</p>
+            </div>
+            <ul class="space-y-3 text-sm text-zinc-600 flex-1 mb-8">
+           
+           
+           
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Product Catalog For 100's of Brands 
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Email support
+              </li>
+                <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Quotations
+              </li>
+                <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Basic CRM
+              </li>
+                <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Direct Manufacturer Messaging
+              </li>
+            </ul>
+            <a href="#" class="block text-center border border-zinc-300 hover:border-brand-600 hover:text-brand-600 text-zinc-700 font-semibold py-2.5 rounded-xl transition-colors text-sm">
+              Get Started
+            </a>
+          </div>
+
+          <!-- Premium -->
+          <div class="relative border-2 border-brand-600 rounded-2xl p-8 flex flex-col card-hover bg-white" style="box-shadow: 0 8px 32px -4px rgba(125,61,125,0.18);">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+              <span class="bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                Most Popular
+              </span>
+            </div>
+            <div class="mb-6">
+              <p class="text-sm font-semibold text-brand-600 uppercase tracking-wide mb-1">Premium</p>
+              <div class="flex items-end gap-1">
+                <span class="text-4xl font-extrabold text-zinc-900" x-text="annual ? '$63' : '$49'"></span>
+                <span class="text-zinc-500 text-sm mb-1">/mo</span>
+              </div>
+              <p class="text-xs text-zinc-400 mt-1" x-show="annual" x-cloak>Billed annually ($756/yr)</p>
+              <p class="text-xs text-zinc-400 mt-1" x-show="!annual">Billed monthly</p>
+            </div>
+            <ul class="space-y-3 text-sm text-zinc-600 flex-1 mb-8">
+              <li class="flex items-start gap-2 font-medium text-brand-600">
+                <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Everything in Basic, plus:
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-brand-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Unlimited brand access
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-brand-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Full CRM (unlimited contacts)
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-brand-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Unlimited quotes
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-brand-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Advanced search &amp; filtering
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-brand-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Priority support
+              </li>
+            </ul>
+            <a href="#" class="block text-center bg-brand-600 hover:bg-brand-700 text-white font-semibold py-2.5 rounded-xl transition-colors text-sm shadow-sm">
+              Get Started
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FAQ nudge -->
+      <p class="text-center text-sm text-zinc-400 mt-12">
+        Not sure which plan is right for you?
+        <a href="/index.html#demo" class="text-brand-600 hover:underline font-medium">Book a free demo</a>
+        and we'll help you decide.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div hx-get="/partials/footer.html" hx-trigger="load" hx-swap="outerHTML"></div>
+
+</body>
+</html>
