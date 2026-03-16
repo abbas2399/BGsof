@@ -1,7 +1,7 @@
 <header
   x-data="{ open: false, scrolled: false, path: window.location.pathname }"
   @scroll.window="scrolled = window.scrollY > 10"
-  :class="scrolled ? 'shadow-brand bg-white/95 backdrop-blur-sm' : 'bg-white'"
+  :class="scrolled ? 'shadow-brand bg-[#F5F5F7]/95 backdrop-blur-sm' : 'bg-[#F5F5F7]'"
   class="sticky top-0 z-50 border-b border-zinc-100 transition-shadow duration-200"
 >
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,14 +9,14 @@
 
       <!-- Logo -->
       <a href="/index.html" class="flex items-center">
-        <img src="/assets/BGsoft.png" alt="BG Sof" class="h-10 w-auto" />
+        <img src="/assets/BGsof.png" alt="BG Sof" class="h-10 w-auto" />
       </a>
 
       <!-- Desktop nav links -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-600">
-        <a href="/pricing.html" :class="path === '/pricing.html' ? 'text-brand-600 font-semibold' : 'hover:text-zinc-900'" class="transition-colors">Pricing</a>
-        <a href="/showrooms.html" :class="path === '/showrooms.html' ? 'text-brand-600 font-semibold' : 'hover:text-zinc-900'" class="transition-colors">Showrooms</a>
-        <a href="/manufacturers.html" :class="path === '/manufacturers.html' ? 'text-brand-600 font-semibold' : 'hover:text-zinc-900'" class="transition-colors">Manufacturers</a>
+        <a href="/pricing.html" :class="path === '/pricing.html' ? 'text-zinc-900 font-semibold' : 'hover:text-zinc-900'" class="transition-colors">Pricing</a>
+        <a href="/showrooms.html" :class="path === '/showrooms.html' ? 'text-zinc-900 font-semibold' : 'hover:text-zinc-900'" class="transition-colors">Showrooms</a>
+        <a href="/manufacturers.html" :class="path === '/manufacturers.html' ? 'text-zinc-900 font-semibold' : 'hover:text-zinc-900'" class="transition-colors">Manufacturers</a>
       </nav>
 
       <!-- Desktop CTA -->
@@ -29,7 +29,7 @@
         </a>
     
 
-        <a href="/index.html#demo" class="inline-flex items-center text-sm font-semibold bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-xl transition-colors">
+        <a href="/demo.html" class="inline-flex items-center text-sm font-semibold bg-terracotta-600 hover:bg-terracotta-700 text-white px-4 py-2 rounded-xl transition-colors">
           Book a Demo
         </a>
       </div>
@@ -64,18 +64,18 @@
     x-transition:leave="transition ease-in duration-100"
     x-transition:leave-start="opacity-100 translate-y-0"
     x-transition:leave-end="opacity-0 -translate-y-2"
-    class="md:hidden border-t border-zinc-100 bg-white"
+    class="md:hidden border-t border-zinc-100 bg-[#F5F5F7]"
   >
     <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1 text-sm font-medium text-zinc-600">
      
-      <a href="/pricing.html" @click="open=false" :class="path === '/pricing.html' ? 'text-brand-600 font-semibold' : 'hover:text-zinc-900'" class="py-2 transition-colors">Pricing</a>
-      <a href="/showrooms.html" @click="open=false" :class="path === '/showrooms.html' ? 'text-brand-600 font-semibold' : 'hover:text-zinc-900'" class="py-2 transition-colors">Showrooms</a>
-      <a href="/manufacturers.html" @click="open=false" :class="path === '/manufacturers.html' ? 'text-brand-600 font-semibold' : 'hover:text-zinc-900'" class="py-2 transition-colors">Manufacturers</a>
+      <a href="/pricing.html" @click="open=false" :class="path === '/pricing.html' ? 'text-zinc-900 font-semibold' : 'hover:text-zinc-900'" class="py-2 transition-colors">Pricing</a>
+      <a href="/showrooms.html" @click="open=false" :class="path === '/showrooms.html' ? 'text-zinc-900 font-semibold' : 'hover:text-zinc-900'" class="py-2 transition-colors">Showrooms</a>
+      <a href="/manufacturers.html" @click="open=false" :class="path === '/manufacturers.html' ? 'text-zinc-900 font-semibold' : 'hover:text-zinc-900'" class="py-2 transition-colors">Manufacturers</a>
       
       <div class="pt-3 mt-1 border-t border-zinc-100 flex flex-col gap-2">
         <a href="/login.html"  class="py-2 text-zinc-600 hover:text-zinc-900 transition-colors">Log In</a>
         <a href="/signup.html"  class="py-2 text-zinc-600 hover:text-zinc-900 transition-colors">Sign Up </a>
-        <a href="/index.html#demo" class="inline-flex items-center text-sm font-semibold bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg transition-colors">
+        <a href="/demo.html" class="inline-flex items-center text-sm font-semibold bg-terracotta-600 hover:bg-terracotta-700 text-white px-4 py-2 rounded-lg transition-colors">
           Book a Demo
         </a>
       </div>

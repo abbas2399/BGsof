@@ -1,0 +1,369 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.scene {
+  background: #F7F5F2;
+  min-height: 540px;
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  gap: 14px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scene::before {
+  content: '';
+  position: absolute;
+  top: -80px; left: 40%;
+  width: 500px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,154,108,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 210px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: floatUp 0.4s ease 0.1s both;
+}
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #EAE6DF;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 16px;
+}
+
+.filter-title {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #A89D92;
+  margin-bottom: 14px;
+}
+
+.filter-group { margin-bottom: 14px; }
+.filter-group:last-child { margin-bottom: 0; }
+.filter-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1A1714;
+  margin-bottom: 8px;
+}
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: #3A3530;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+.check-box {
+  width: 14px; height: 14px;
+  border-radius: 4px;
+  background: #1A1714;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.check-box.empty { background: transparent; border: 1.5px solid #D0C8BE; }
+
+.location-pill {
+  background: #F7F5F2;
+  border: 1px solid #EAE6DF;
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 11px;
+  color: #7A6A55;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.radius-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.chip.active { background: #1A1714; color: #F7F5F2; }
+.chip.muted  { background: #F7F5F2; border: 1px solid #EAE6DF; color: #7A6A55; }
+
+.stat-card {
+  background: linear-gradient(135deg, #2C2520 0%, #1A1714 100%);
+  border-radius: 14px;
+  padding: 18px 16px;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #F7F5F2;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-sub {
+  font-size: 9.5px;
+  color: #A89D92;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.export-btn {
+  margin-top: 14px;
+  background: #C49A6C;
+  border-radius: 8px;
+  padding: 9px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  border: none;
+  width: 100%;
+}
+
+/* ── Main ── */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: floatUp 0.4s ease 0.2s both;
+  min-width: 0;
+}
+
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.search-bar {
+  background: #fff;
+  border: 1px solid #EAE6DF;
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.search-icon { font-size: 14px; color: #A89D92; flex-shrink: 0; }
+.search-input {
+  flex: 1;
+  border: none; outline: none;
+  font-size: 12px;
+  color: #1A1714;
+  font-family: 'DM Sans', sans-serif;
+  background: transparent;
+  min-width: 0;
+}
+.search-meta { font-size: 10px; color: #A89D92; font-weight: 500; white-space: nowrap; }
+.search-btn {
+  background: #C49A6C;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  flex-shrink: 0;
+}
+
+.results-meta {
+  font-size: 10.5px;
+  color: #A89D92;
+  font-weight: 500;
+  padding: 0 2px;
+}
+
+/* Lead card */
+.lead-card {
+  background: #fff;
+  border: 1px solid #EAE6DF;
+  border-radius: 12px;
+  padding: 13px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.lead-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); transform: translateY(-1px); }
+
+.avatar {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-size: 14px; font-weight: 600;
+  color: #F7F5F2;
+  flex-shrink: 0;
+}
+
+.lead-name  { font-size: 12px; font-weight: 600; color: #1A1714; }
+.lead-co    { font-size: 10.5px; color: #A89D92; margin-top: 1px; }
+.lead-tags  { display: flex; gap: 5px; margin-top: 5px; flex-wrap: wrap; }
+
+.tag {
+  font-size: 9.5px; font-weight: 600;
+  padding: 2px 8px; border-radius: 20px;
+}
+.tag-builder    { background: #EDF4FF; color: #3B7DD8; }
+.tag-contractor { background: #FFF4ED; color: #C96A1F; }
+.tag-designer   { background: #F3F0FF; color: #7C5CBF; }
+.tag-architect  { background: #EDFFF4; color: #2E7D50; }
+.tag-loc        { background: #F7F5F2; color: #7A6A55; border: 1px solid #EAE6DF; }
+
+.lead-actions { display: flex; gap: 7px; flex-shrink: 0; margin-left: auto; }
+.btn {
+  font-size: 10.5px; font-weight: 600;
+  padding: 6px 12px; border-radius: 7px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  border: none;
+}
+.btn-ghost   { background: #F7F5F2; color: #1A1714; border: 1px solid #EAE6DF; }
+.btn-primary { background: #1A1714; color: #F7F5F2; }
+.btn-gold    { background: #C49A6C; color: #fff; }
+</style>
+
+<div class="scene">
+
+  <!-- ── Sidebar ───────────────────────────────── -->
+  <div class="sidebar">
+    <div class="card">
+      <div class="filter-title">Filters</div>
+
+      <div class="filter-group">
+        <div class="filter-label">Lead Type</div>
+        <div class="check-row"><div class="check-box"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#F7F5F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Builders</div>
+        <div class="check-row"><div class="check-box"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#F7F5F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Contractors</div>
+        <div class="check-row"><div class="check-box empty"></div>Designers</div>
+        <div class="check-row"><div class="check-box"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#F7F5F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Architects</div>
+      </div>
+
+      <div class="filter-group" style="border-top:1px solid #EAE6DF;padding-top:14px;">
+        <div class="filter-label">Location</div>
+        <div class="location-pill">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#C49A6C" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Chicago, IL
+        </div>
+      </div>
+
+      <div class="filter-group" style="border-top:1px solid #EAE6DF;padding-top:14px;">
+        <div class="filter-label">Radius</div>
+        <div class="radius-chips">
+          <span class="chip active">25 mi</span>
+          <span class="chip muted">50 mi</span>
+          <span class="chip muted">100 mi</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-num">47</div>
+      <div class="stat-sub">Leads Found</div>
+      <button class="export-btn">Export All</button>
+    </div>
+  </div>
+
+  <!-- ── Main ──────────────────────────────────── -->
+  <div class="main">
+
+    <!-- Search bar -->
+    <div class="search-bar">
+      <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/></svg>
+      <input class="search-input" value="Builders &amp; Contractors — Chicago, IL" readonly />
+      <span class="search-meta">Sort: Nearest</span>
+      <button class="search-btn">Search</button>
+    </div>
+
+    <div class="results-meta">Showing 47 results within 25 miles</div>
+
+    <!-- Lead 1 -->
+    <div class="lead-card">
+      <div class="avatar" style="background:linear-gradient(135deg,#2C2520,#1A1714);">MR</div>
+      <div style="flex:1;min-width:0;">
+        <div class="lead-name">Marcus Rivera</div>
+        <div class="lead-co">Rivera Construction Group · 3 active projects</div>
+        <div class="lead-tags">
+          <span class="tag tag-builder">Builder</span>
+          <span class="tag tag-loc">📍 2.4 mi</span>
+        </div>
+      </div>
+      <div class="lead-actions">
+        <button class="btn btn-ghost">View</button>
+        <button class="btn btn-primary">Connect</button>
+      </div>
+    </div>
+
+    <!-- Lead 2 -->
+    <div class="lead-card">
+      <div class="avatar" style="background:linear-gradient(135deg,#7C5CBF,#5B3D9E);">SP</div>
+      <div style="flex:1;min-width:0;">
+        <div class="lead-name">Sarah Park</div>
+        <div class="lead-co">Park Interior Design · 12 completed projects</div>
+        <div class="lead-tags">
+          <span class="tag tag-designer">Designer</span>
+          <span class="tag tag-loc">📍 5.1 mi</span>
+        </div>
+      </div>
+      <div class="lead-actions">
+        <button class="btn btn-ghost">View</button>
+        <button class="btn btn-primary">Connect</button>
+      </div>
+    </div>
+
+    <!-- Lead 3 -->
+    <div class="lead-card">
+      <div class="avatar" style="background:linear-gradient(135deg,#C96A1F,#A05218);">TK</div>
+      <div style="flex:1;min-width:0;">
+        <div class="lead-name">Thomas Klein</div>
+        <div class="lead-co">Klein &amp; Sons Plumbing · 8 active projects</div>
+        <div class="lead-tags">
+          <span class="tag tag-contractor">Contractor</span>
+          <span class="tag tag-loc">📍 7.8 mi</span>
+        </div>
+      </div>
+      <div class="lead-actions">
+        <button class="btn btn-ghost">View</button>
+        <button class="btn btn-gold">Connect</button>
+      </div>
+    </div>
+
+    <!-- Lead 4 (dimmed) -->
+    <div class="lead-card" style="opacity:0.55;">
+      <div class="avatar" style="background:linear-gradient(135deg,#2E7D50,#1A5C35);">AL</div>
+      <div style="flex:1;min-width:0;">
+        <div class="lead-name">Anita Lopes</div>
+        <div class="lead-co">Lopes Homes Development · 5 active projects</div>
+        <div class="lead-tags">
+          <span class="tag tag-builder">Builder</span>
+          <span class="tag tag-architect">Architect</span>
+          <span class="tag tag-loc">📍 11.2 mi</span>
+        </div>
+      </div>
+      <div class="lead-actions">
+        <button class="btn btn-ghost">View</button>
+        <button class="btn btn-primary">Connect</button>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,188 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.scene {
+  background: #F7F5F2;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  font-family: 'DM Sans', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.scene::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,154,108,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.panels {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+}
+
+.panel {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #EAE6DF;
+  box-shadow: 0 4px 28px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+}
+
+.panel:nth-child(1) { animation: floatUp 0.5s ease 0.1s both; margin-top: 28px; }
+.panel:nth-child(2) { animation: floatUp 0.5s ease 0.25s both; }
+.panel:nth-child(3) { animation: floatUp 0.5s ease 0.4s both; margin-top: 40px; }
+
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dashboard */
+.dash-header { background: #1A1714; padding: 14px 16px 12px; display: flex; align-items: center; justify-content: space-between; }
+.dash-logo { font-family: 'Fraunces', serif; font-size: 13px; color: #F7F5F2; font-weight: 600; letter-spacing: 0.02em; }
+.dash-dot { width: 6px; height: 6px; border-radius: 50%; background: #C49A6C; }
+.dash-body { padding: 14px 16px; }
+.dash-label { font-size: 9.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #A89D92; margin-bottom: 10px; }
+.stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.stat-box { background: #F7F5F2; border-radius: 8px; padding: 10px 12px; }
+.stat-num { font-size: 18px; font-weight: 600; color: #1A1714; line-height: 1; margin-bottom: 3px; }
+.stat-desc { font-size: 9.5px; color: #A89D92; font-weight: 500; }
+.listing-list { display: flex; flex-direction: column; gap: 7px; }
+.listing-row { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; background: #FAFAF9; border: 1px solid #F0EDE8; }
+.listing-thumb { width: 32px; height: 32px; border-radius: 6px; background: #EDE9E2; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+.listing-info { flex: 1; min-width: 0; }
+.listing-name { font-size: 11px; font-weight: 500; color: #1A1714; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.listing-meta { font-size: 9.5px; color: #A89D92; margin-top: 1px; }
+.listing-price { font-size: 11px; font-weight: 600; color: #7A6A55; flex-shrink: 0; }
+
+/* Product Detail */
+.prod-img-area { background: linear-gradient(160deg, #EDE9E2 0%, #F7F5F2 100%); height: 130px; display: flex; align-items: center; justify-content: center; position: relative; }
+.prod-big-icon { font-size: 52px; opacity: 0.7; }
+.prod-badge { position: absolute; top: 10px; right: 10px; background: #1A1714; color: #F7F5F2; font-size: 9px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 20px; }
+.prod-body { padding: 14px 16px; }
+.prod-brand { font-size: 9.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #C49A6C; margin-bottom: 3px; }
+.prod-name { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 600; color: #1A1714; margin-bottom: 4px; line-height: 1.2; }
+.prod-model { font-size: 10px; color: #A89D92; margin-bottom: 12px; }
+.specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 12px; }
+.spec-item { background: #F7F5F2; border-radius: 7px; padding: 7px 9px; }
+.spec-key { font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: #A89D92; font-weight: 600; margin-bottom: 2px; }
+.spec-val { font-size: 11px; font-weight: 500; color: #1A1714; }
+.prod-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid #F0EDE8; }
+.prod-price { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; color: #1A1714; }
+.prod-price span { font-size: 11px; font-family: 'DM Sans', sans-serif; color: #A89D92; font-weight: 400; }
+.add-btn { background: #C49A6C; color: #fff; font-size: 10px; font-weight: 600; border: none; border-radius: 7px; padding: 7px 14px; cursor: pointer; letter-spacing: 0.04em; }
+
+/* Manufacturer */
+.mfr-header { background: linear-gradient(135deg, #2C2520 0%, #1A1714 100%); padding: 18px 16px 14px; }
+.mfr-avatar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.mfr-avatar { width: 40px; height: 40px; border-radius: 10px; background: #C49A6C; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; color: #fff; flex-shrink: 0; }
+.mfr-name { font-family: 'Fraunces', serif; font-size: 14px; font-weight: 600; color: #F7F5F2; margin-bottom: 2px; }
+.mfr-sub { font-size: 10px; color: #8C7D6E; }
+.mfr-verified { display: inline-flex; align-items: center; gap: 4px; background: rgba(196,154,108,0.2); border: 1px solid rgba(196,154,108,0.35); color: #C49A6C; font-size: 9.5px; font-weight: 600; border-radius: 20px; padding: 3px 9px; letter-spacing: 0.06em; }
+.mfr-stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px; margin-top: 10px; }
+.mfr-stat { text-align: center; }
+.mfr-stat-num { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; color: #F7F5F2; }
+.mfr-stat-label { font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.08em; color: #6B5E52; font-weight: 500; margin-top: 1px; }
+.mfr-body { padding: 14px 16px; }
+.mfr-section-label { font-size: 9.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #A89D92; margin-bottom: 9px; }
+.cat-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+.cat-tag { background: #F0EDE8; color: #7A6A55; font-size: 10px; font-weight: 500; border-radius: 20px; padding: 4px 10px; border: 1px solid #E0D9D0; }
+.cert-row { display: flex; flex-direction: column; gap: 6px; }
+.cert-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: #F7F5F2; border-radius: 8px; border: 1px solid #F0EDE8; }
+.cert-icon { width: 24px; height: 24px; border-radius: 6px; background: #EDE9E2; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+.cert-name { font-size: 11px; font-weight: 500; color: #1A1714; }
+.cert-year { font-size: 9.5px; color: #A89D92; }
+</style>
+
+<div class="scene">
+  <div class="panels">
+
+    <div class="panel">
+      <div class="dash-header">
+        <span class="dash-logo">Showroom</span>
+        <div class="dash-dot"></div>
+      </div>
+      <div class="dash-body">
+        <div class="dash-label">Overview</div>
+        <div class="stat-row">
+          <div class="stat-box"><div class="stat-num">248</div><div class="stat-desc">Active listings</div></div>
+          <div class="stat-box"><div class="stat-num">$94k</div><div class="stat-desc">Monthly GMV</div></div>
+        </div>
+        <div class="dash-label">Recent Products</div>
+        <div class="listing-list">
+          <div class="listing-row"><div class="listing-thumb">🚿</div><div class="listing-info"><div class="listing-name">Rain Shower System</div><div class="listing-meta">Kohler · Brushed Nickel</div></div><div class="listing-price">$489</div></div>
+          <div class="listing-row"><div class="listing-thumb">🪠</div><div class="listing-info"><div class="listing-name">Wall-Mount Faucet</div><div class="listing-meta">Moen · Chrome</div></div><div class="listing-price">$312</div></div>
+          <div class="listing-row"><div class="listing-thumb">🛁</div><div class="listing-info"><div class="listing-name">Freestand Tub Filler</div><div class="listing-meta">Delta · Matte Black</div></div><div class="listing-price">$1,240</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="prod-img-area">
+        <div class="prod-big-icon">🚰</div>
+        <div class="prod-badge">IN STOCK</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Grohe</div>
+        <div class="prod-name">Essence Single-Lever Basin Mixer</div>
+        <div class="prod-model">SKU: GR-23591001 · Series 2024</div>
+        <div class="specs-grid">
+          <div class="spec-item"><div class="spec-key">Finish</div><div class="spec-val">StarLight Chrome</div></div>
+          <div class="spec-item"><div class="spec-key">Flow rate</div><div class="spec-val">5.7 L/min</div></div>
+          <div class="spec-item"><div class="spec-key">Install</div><div class="spec-val">1-hole deck</div></div>
+          <div class="spec-item"><div class="spec-key">Warranty</div><div class="spec-val">Lifetime</div></div>
+        </div>
+        <div class="prod-footer">
+          <div class="prod-price">$219 <span>/ unit</span></div>
+          <button class="add-btn">Inquire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="mfr-header">
+        <div class="mfr-avatar-row">
+          <div class="mfr-avatar">AG</div>
+          <div><div class="mfr-name">American Greenfield</div><div class="mfr-sub">Chicago, IL · Since 1987</div></div>
+        </div>
+        <div class="mfr-verified">✓ &nbsp;Verified Manufacturer</div>
+        <div class="mfr-stats">
+          <div class="mfr-stat"><div class="mfr-stat-num">412</div><div class="mfr-stat-label">Products</div></div>
+          <div class="mfr-stat"><div class="mfr-stat-num">38</div><div class="mfr-stat-label">Showrooms</div></div>
+          <div class="mfr-stat"><div class="mfr-stat-num">4.9</div><div class="mfr-stat-label">Rating</div></div>
+        </div>
+      </div>
+      <div class="mfr-body">
+        <div class="mfr-section-label">Categories</div>
+        <div class="cat-tags">
+          <span class="cat-tag">Faucets</span>
+          <span class="cat-tag">Valves</span>
+          <span class="cat-tag">Showerheads</span>
+          <span class="cat-tag">Rough-in</span>
+        </div>
+        <div class="mfr-section-label">Certifications</div>
+        <div class="cert-row">
+          <div class="cert-item"><div class="cert-icon">🏅</div><div><div class="cert-name">ASME A112.18.1</div><div class="cert-year">Plumbing Supply Fittings</div></div></div>
+          <div class="cert-item"><div class="cert-icon">♻️</div><div><div class="cert-name">WaterSense Certified</div><div class="cert-year">EPA Partner · 2023</div></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
