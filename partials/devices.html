@@ -12,29 +12,57 @@
       </p>
     </div>
 
-    <!-- Device stage -->
-    <div class="relative" style="min-height: 500px;">
+    <!-- ── Mobile: simple browser mockup (hidden on sm+) ─────────────── -->
+    <div class="sm:hidden flex flex-col drop-shadow-xl">
+      <div class="bg-[#1e1e1e] rounded-t-2xl px-4 py-2.5 flex items-center gap-3">
+        <div class="flex items-center gap-1.5 flex-shrink-0">
+          <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#febc2e]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
+        </div>
+        <div class="flex-1 bg-[#2d2d2d] rounded-lg h-6 flex items-center px-3 gap-2">
+          <svg class="w-2.5 h-2.5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+          </svg>
+          <span class="text-[#777] text-xs truncate">bgsof.com/dashboard</span>
+        </div>
+      </div>
+      <div class="bg-[#282828] flex items-end px-4 gap-1">
+        <div class="bg-[#f7f5f2] rounded-t-lg px-4 pt-1.5 pb-1 flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-[#c49a6c] flex-shrink-0"></div>
+          <span class="text-[#333] text-xs font-medium">Dashboard</span>
+          <span class="text-[#aaa] text-[10px] ml-1 leading-none">✕</span>
+        </div>
+      </div>
+      <div class="bg-white border-l border-r border-b border-[#111] rounded-b-2xl overflow-hidden h-64">
+        <iframe
+          src="/partials/mockups/dashboard.html"
+          class="w-full h-full border-0 block"
+          scrolling="no"
+          title="BG Sof dashboard"
+        ></iframe>
+      </div>
+    </div>
 
-      <!-- ── Desktop browser mockup ─────────────────────────────────────────── -->
-      <!-- extends 60px past the right edge of the container; section overflow-hidden clips it -->
+    <!-- ── Desktop: dual-device absolute stage (hidden on mobile) ─────── -->
+    <div class="hidden sm:block relative" style="min-height: 500px;">
+
+      <!-- Desktop browser mockup -->
       <div class="absolute top-0 left-0 flex flex-col drop-shadow-2xl" style="width: calc(100% + 60px); max-width: 920px;">
 
         <!-- Chrome bar -->
         <div class="bg-[#1e1e1e] rounded-t-2xl px-4 py-2.5 flex items-center gap-3">
-          <!-- Traffic lights -->
           <div class="flex items-center gap-1.5 flex-shrink-0">
             <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
             <div class="w-3 h-3 rounded-full bg-[#febc2e]"></div>
             <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
           </div>
-          <!-- URL bar -->
           <div class="flex-1 max-w-xs mx-auto bg-[#2d2d2d] rounded-lg h-6 flex items-center px-3 gap-2">
             <svg class="w-2.5 h-2.5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
             </svg>
             <span class="text-[#777] text-xs truncate">bgsof.com/dashboard</span>
           </div>
-          <!-- Window buttons -->
           <div class="flex items-center gap-4 flex-shrink-0 opacity-30">
             <div class="w-3.5 h-[2px] bg-white rounded"></div>
             <div class="w-3 h-3 border border-white rounded-sm"></div>
@@ -68,33 +96,22 @@
           <div class="w-48 h-[6px] bg-zinc-300 rounded-b-xl"></div>
         </div>
 
-        <!-- Right-edge fade to white so the cut looks intentional -->
-        <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#F5F5F7] to-transparent pointer-events-none"></div>
+        <!-- Right-edge fade -->
+        <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-page to-transparent pointer-events-none"></div>
       </div>
 
-      <!-- ── Phone mockup ──────────────────────────────────────────────────── -->
+      <!-- Phone mockup -->
       <div class="absolute bottom-0 right-0 z-10" style="width: 214px;">
-
-        <!-- Outer shell -->
         <div class="relative bg-gradient-to-b from-[#2e2e2e] to-[#1a1a1a] rounded-[2.6rem] p-[5px] shadow-2xl">
-
-          <!-- Physical side buttons -->
           <div class="absolute -left-[3px] top-[72px]  w-[3px] h-7  bg-[#333] rounded-l-sm"></div>
           <div class="absolute -left-[3px] top-[116px] w-[3px] h-10 bg-[#333] rounded-l-sm"></div>
           <div class="absolute -left-[3px] top-[174px] w-[3px] h-10 bg-[#333] rounded-l-sm"></div>
           <div class="absolute -right-[3px] top-[132px] w-[3px] h-14 bg-[#333] rounded-r-sm"></div>
-
-          <!-- Screen -->
           <div class="bg-black rounded-[2.2rem] overflow-hidden relative" style="height: 382px;">
-
-            <!-- Dynamic Island -->
             <div class="absolute top-3 left-1/2 -translate-x-1/2 z-20 bg-black rounded-full flex items-center justify-center gap-1.5" style="width:78px; height:24px;">
               <div class="w-2   h-2   rounded-full border border-[#2a2a2a]"></div>
               <div class="w-3.5 h-3.5 rounded-full border border-[#2a2a2a]"></div>
             </div>
-
-            <!-- Scaled content: 204px target / 500px iframe = 0.408 scale -->
-            <!-- iframe height = 382 / 0.408 ≈ 936px                       -->
             <div class="overflow-hidden w-full h-full">
               <div style="transform: scale(0.408); transform-origin: top left; width: 500px; height: 936px;">
                 <iframe
@@ -106,16 +123,13 @@
               </div>
             </div>
           </div>
-
-          <!-- Home indicator -->
           <div class="flex justify-center py-2">
             <div class="w-24 h-1 bg-[#555] rounded-full"></div>
           </div>
         </div>
-
       </div>
-      <!-- ──────────────────────────────────────────────────────────────────── -->
 
-    </div><!-- /device stage -->
+    </div><!-- /desktop stage -->
+
   </div>
 </section>
