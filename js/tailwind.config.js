@@ -2,6 +2,7 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
+        page: '#F5F5F7',
         brand: {
     50: '#eef6ff',
     100: '#d9eaff',

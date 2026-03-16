@@ -26,6 +26,25 @@
   text-shadow: 0 0 15px rgba(16, 41, 58, 0.4);
 }
 
+.form-input {
+  width: 100%;
+  border: 1px solid rgb(212 212 216);
+  border-radius: 0.75rem;
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgb(24 24 27);
+  transition: all 150ms;
+}
+.form-input::placeholder {
+  color: rgb(161 161 170);
+}
+.form-input:focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow: 0 0 0 2px rgb(220 127 106 / 0.5);
+}
+
 
 
 
